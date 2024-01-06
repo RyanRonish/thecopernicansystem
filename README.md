@@ -1,2 +1,2 @@
 # thecopernicansystem
-Visualizing the Solar System aka the Copernicansystem
+Visualizing the Solar System aka the Copernican System
