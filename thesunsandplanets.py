@@ -90,7 +90,7 @@ layout = go.Layout(
 frames = [go.Frame(data=[trace0, trace1, trace2, trace3, trace4, trace5, trace6, trace7, trace8,
                          trace11, trace12, trace13, trace14, trace15, trace16, trace17, trace18,
                          trace21, trace22, trace23, trace24, trace25, trace26])]
-for i in range(1, 361):
+for i in range(1, 361, 10):
     frame_data = [
         spheres(diameter[0], '#ffff00', distance_from_sun[0]),
         spheres(diameter[1], '#87877d', distance_from_sun[1] * np.cos(np.radians(i * 10))),
