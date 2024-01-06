@@ -130,5 +130,23 @@ fig = go.Figure(data=[trace0, trace1, trace2, trace3, trace4, trace5, trace6, tr
                 layout=layout,
                 frames=frames)
 
+def spheres_frames(size, clr, dist=0): 
+    theta = np.linspace(0, 2*np.pi, 100)
+    phi = np.linspace(0, np.pi, 100)
+    frames = []
+    for i in range(361):
+        x0 = dist + size * np.cos(math.radians(i)) * np.sin(phi)
+        y0 = size * np.sin(math.radians(i)) * np.sin(phi)
+        z0 = size * np.ones(100) * np.cos(phi)
+        frames.append(go.Frame(data=[go.Surface(x=x0, y=y0, z=z0, colorscale=[[0, clr], [1, clr]], cmin=-1, cmax=1, surfacecolor=z0)]))
+    
+    return frames
+
+# Example usage for Mercury
+trace_frames = spheres_frames(diameter[1], '#87877d', distance_from_sun[1])
+
+# Create figure with initial data and layout
+fig = go.Figure(data=[trace0, trace1], layout=layout, frames=trace_frames)
+
 # Show the figure
 fig.show()
